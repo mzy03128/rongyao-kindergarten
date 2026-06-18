@@ -1,9 +1,10 @@
-const CACHE_NAME = "rongyao-kindergarten-v3";
+const CACHE_NAME = "rongyao-kindergarten-v4";
 
 const APP_SHELL = [
   "/",
   "/index.html",
   "/style.css",
+  "/mobile-input-fix.css",
   "/app.js",
   "/manifest.webmanifest",
   "/offline.html",
