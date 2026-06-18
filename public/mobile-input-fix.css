@@ -1,0 +1,30 @@
+@media (max-width: 720px) {
+  .composer-wrap {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    padding: 9px 14px calc(10px + env(safe-area-inset-bottom));
+  }
+
+  .composer {
+    width: min(100%, calc(100vw - 28px));
+    max-width: calc(100vw - 28px);
+    grid-template-columns: minmax(0, 1fr) 42px;
+    gap: 6px;
+    padding: 8px 8px 8px 15px;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .composer textarea {
+    max-height: 96px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .send-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 16px;
+  }
+}
