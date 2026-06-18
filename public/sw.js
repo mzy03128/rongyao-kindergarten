@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = "rongyao-kindergarten-v1";
+const CACHE_NAME = "rongyao-kindergarten-v3";
 
 const APP_SHELL = [
   "/",
@@ -7,10 +7,10 @@ const APP_SHELL = [
   "/app.js",
   "/manifest.webmanifest",
   "/offline.html",
-  "/assets/icons/apple-touch-icon.png",
-  "/assets/icons/icon-192.png",
-  "/assets/icons/icon-512.png",
-  "/assets/icons/maskable-512.png",
+  "/assets/icons/bluehair-apple-touch-icon.png",
+  "/assets/icons/bluehair-icon-192.png",
+  "/assets/icons/bluehair-icon-512.png",
+  "/assets/icons/bluehair-maskable-512.png",
   "/assets/posters/caiwenji.jpg",
   "/assets/posters/daji.jpg",
   "/assets/posters/dolia.jpg",
