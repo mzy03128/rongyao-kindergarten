@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: rongyao-kindergarten
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DIFY_API_BASE
+        value: https://api.dify.ai/v1
+      - key: DIFY_API_KEY
+        sync: false
