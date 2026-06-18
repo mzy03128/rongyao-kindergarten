@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#fff8fb" />
+    <meta name="description" content="绒耀幼稚园角色陪伴聊天 Demo" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="绒耀幼稚园" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>绒耀幼稚园 · 角色聊天</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="cloud cloud-one"></div>
+    <div class="cloud cloud-two"></div>
+    <div class="cloud cloud-three"></div>
+
+    <main class="app-shell">
+      <aside class="sidebar panel" aria-label="角色选择">
+        <div class="brand">
+          <span class="brand-mark">园</span>
+          <div>
+            <strong>绒耀幼稚园</strong>
+            <span>选择今天陪你放学聊天的角色</span>
+          </div>
+        </div>
+
+        <div class="side-heading">
+          <span>入园名册</span>
+          <span class="sticker">15 位</span>
+        </div>
+        <div id="characterList" class="character-list"></div>
+
+        <div class="connection-card">
+          <span id="connectionDot" class="status-dot"></span>
+          <div>
+            <strong id="connectionTitle">正在连接 Dify</strong>
+            <span id="connectionDetail">检查角色聊天服务...</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="chat panel" aria-label="聊天区">
+        <header class="chat-header">
+          <div class="active-character">
+            <img id="headerAvatar" alt="" />
+            <div>
+              <span class="eyebrow">今天的陪伴角色</span>
+              <h1 id="headerName">妲己</h1>
+            </div>
+          </div>
+          <button id="clearButton" class="text-button" type="button">重新开始</button>
+        </header>
+
+        <div class="scene-strip" aria-hidden="true">
+          <span>彩虹操场</span>
+          <span>积木教室</span>
+          <span>午睡花园</span>
+        </div>
+
+        <section class="mood-panel" aria-label="今日心情">
+          <div class="mood-copy">
+            <span class="eyebrow">今日心情</span>
+            <strong id="moodSummary">先选一个心情，TA 会更懂怎么陪你。</strong>
+          </div>
+          <div id="moodList" class="mood-list"></div>
+        </section>
+
+        <div id="messageList" class="message-list" aria-live="polite"></div>
+
+        <div class="composer-wrap">
+          <div class="story-trigger-wrap">
+            <button id="storyToggle" class="story-toggle" type="button">故事发展</button>
+            <div id="storyPopover" class="story-popover" hidden>
+              <div class="story-popover-head">
+                <span class="eyebrow">故事发展</span>
+                <strong>选一个小剧情，让 TA 接着陪你演下去。</strong>
+              </div>
+              <div id="eventList" class="event-list"></div>
+            </div>
+          </div>
+          <form id="messageForm" class="composer">
+            <textarea id="messageInput" rows="1" maxlength="1000" placeholder="把今天的小心事告诉 TA..." aria-label="消息"></textarea>
+            <button id="sendButton" class="send-button" type="submit" aria-label="发送消息">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m5 12 14-7-4.5 14-3-5-6.5-2Z" />
+                <path d="m11.5 14 3.5-3.5" />
+              </svg>
+            </button>
+          </form>
+          <p class="composer-note">Enter 发送 · Shift + Enter 换行</p>
+        </div>
+      </section>
+
+      <aside class="context panel" aria-label="角色档案">
+        <span class="eyebrow">角色档案</span>
+        <div class="portrait-card">
+          <img id="portraitImage" alt="" />
+          <div class="portrait-overlay">
+            <span id="portraitTag">幼稚园同学</span>
+            <h2 id="portraitName">妲己</h2>
+          </div>
+        </div>
+
+        <div class="poster-meta">
+          <span>班级</span>
+          <strong id="className">棉花糖小班</strong>
+        </div>
+
+        <div class="affinity-card" aria-label="亲密度">
+          <div class="affinity-top">
+            <span class="eyebrow">亲密度</span>
+            <strong id="affinityLevel">初次入园</strong>
+          </div>
+          <div class="affinity-points">
+            <span id="affinityPoints">0 心心</span>
+            <span id="affinityNext">距离下一阶段 30</span>
+          </div>
+          <div class="affinity-bar" aria-hidden="true">
+            <i id="affinityBar"></i>
+          </div>
+          <p id="affinityHint">多聊几句，TA 会慢慢和你熟起来。</p>
+        </div>
+
+        <p id="characterDescription" class="character-description"></p>
+
+        <div class="memory-card" aria-label="角色记忆">
+          <div class="memory-heading">
+            <span class="eyebrow">记忆小本本</span>
+            <button id="clearMemoryButton" type="button">清空</button>
+          </div>
+          <div id="memoryList" class="memory-list"></div>
+          <p id="memoryEmpty" class="memory-empty">还没有记忆。和 TA 多聊几句，小本本会慢慢写起来。</p>
+        </div>
+
+        <div class="story-note">
+          <span class="eyebrow">今日提示</span>
+          <p id="storyNote"></p>
+        </div>
+      </aside>
+    </main>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
